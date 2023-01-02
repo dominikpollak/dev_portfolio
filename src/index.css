@@ -11,7 +11,11 @@
 
 
 @layer components{
-  
+
+  .scrollb{
+    overflow-y: auto !important;
+  }
+
   .stripes::before{
     position: absolute;
     content: '';

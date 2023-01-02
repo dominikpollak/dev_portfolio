@@ -1,6 +1,5 @@
 import { motion } from "framer-motion"
 import { RefObject, useState } from "react"
-import 'simplebar-react/dist/simplebar.min.css';
 
 interface Props {
     screenRef: RefObject<HTMLInputElement>,
@@ -24,9 +23,9 @@ const OpenedAboutme: React.FC<Props> = ({ screenRef, setOpen }) => {
 
     return (
         <motion.div
-            className='absolute bg-white border-[1.5px] border-black block right-[45%] w-[30%] 2xl:w-[25%] h-[50%] z-40 box-border resize overflow-hidden'
+            className='absolute bg-white border-[1.5px] border-black block min-h-[25px] w-[40%] h-[50%] z-40 box-border overflow-hidden resize top-[4rem] left-[7rem]'
             initial={{ scale: 0, originX: 0, originY: 0 }} animate={{ scale: 1 }} transition={{ duration: 1.2 }}
-            // drag={isDraggable}
+            drag={isDraggable}
             dragMomentum={false}
             dragConstraints={screenRef}
             dragElastic={false}
@@ -46,18 +45,16 @@ const OpenedAboutme: React.FC<Props> = ({ screenRef, setOpen }) => {
                 </div>
 
                 <div className='flex justify-center items-center w-full mr-[1.7rem] h-[100%] z-10'>
-                    <div className='bg-white h-[100%] flex items-center px-2 text-[0.8rem] pointer-events-none'>
+                    <div className='bg-white h-[100%] flex items-center px-2 text-[0.8rem]'>
                         about_me.txt
                     </div>
                 </div>
             </div>
 
-            <motion.div
-                draggable={false}
-                dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
-                className='flex justify-start flex-row p-3 h-[calc(100% - 25px)] w-full overflow-y-scroll'>
+            <div
+                className='flex justify-start flex-row p-3 h-full w-full overflow-y-auto '>
 
-                <div className='text-[0.9rem] z-[60] select-none'>
+                <div className='text-[0.9rem] z-[60] select-none w-full h-full'>
                     <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto delectus eos est quidem maiores? Molestiae voluptatum minus nam unde magni ipsam veniam vel, facere a provident explicabo cupiditate, dignissimos repellendus?
                     </p>
@@ -67,8 +64,12 @@ const OpenedAboutme: React.FC<Props> = ({ screenRef, setOpen }) => {
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae, expedita eaque nobis eum quod nemo sed inventore at minus sint mollitia laboriosam omnis unde veritatis cupiditate voluptas, cumque enim fugiat?
                     </p>
+                    <p>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum aperiam consequatur ad eligendi sit iure dolores perspiciatis incidunt id deleniti quae, et dignissimos ullam provident inventore temporibus beatae quia tempora!
+                    </p>
                 </div>
-            </motion.div>
+            </div>
+
         </motion.div>
 
     )

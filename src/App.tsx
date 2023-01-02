@@ -23,12 +23,14 @@ function App() {
   return (
     <>
       <div className={swap ? 'brightness-[100%]' : 'brightness-[103%] hue-rotate-[5deg]'}>
-        <div className='flex justify-center items-center w-screen h-screen bg-black font-chicago leading-5 font-normal text-black'>
+        <div className='w-screen h-screen bg-black font-chicago leading-5 font-normal text-black overflow-hidden'>
 
-          <motion.div
-            ref={screenRef}
-            initial={{ opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 2, ease: 'easeIn' }} exit={{ scale: 0 }}
-            className='stripes w-[65%] h-[85%] 2xl:w-[55%] 2xl:h-[75%] -translate-y-4 2xl:-translate-y-[-2.5rem] bg-[url("./imgs/bg.png")] bg-repeat rounded-lg'>
+          <div className='fixed flex justify-center items-center h-[93%] w-full'>
+
+            <motion.div
+              ref={screenRef}
+              initial={{ opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 2, ease: 'easeIn' }} exit={{ scale: 0 }}
+              className='relative stripes w-[65%] h-[90%] 2xl:w-[50%] 2xl:h-[80%] bg-[url("./imgs/bg.png")] bg-repeat rounded-lg overflow-hidden box-border'>
 
               <Navbar />
 
@@ -45,8 +47,8 @@ function App() {
               <div className=' translate-x-[550%] translate-y-[170%] w-[12%]'>
                 <MyProjects />
               </div>
-          </motion.div>
-
+            </motion.div>
+          </div>
         </div>
       </div>
     </>
