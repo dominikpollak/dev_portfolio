@@ -4,9 +4,11 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        main: ['VT323']
+        main: ['VT323'],
+        chicago: ['Chicago']
       }
     },
   },
-  plugins: [],
+  plugins: [
+  ],
 }

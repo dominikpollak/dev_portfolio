@@ -1,41 +1,17 @@
-import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
+import { useState, useEffect, useRef } from 'react'
+import { motion, } from 'framer-motion'
 import Navbar from './components/Navbar'
-import Folder from './imgs/folder.png'
+import AboutMe from './components/Aboutme'
+import MyProjects from './components/MyProjects'
+import OpenedAboutme from './folders/OpenedAboutme'
 
 
 function App() {
 
   const [swap, setSwap] = useState(false)
+  const [open, setOpen] = useState(false)
 
-  // const turnOnAnimation = animation({
-  //   duration: 2,
-  //   ease: 'linear',
-  //   values: [
-  //     {
-  //       backgroundColor: '#000',
-  //       borderRadius: '0%',
-  //       scale: 1,
-  //     },
-  //     {
-  //       backgroundColor: '#fff',
-  //       borderRadius: '50%',
-  //       scale: 1.2,
-  //     },
-  //   ],
-  // });
-
-  const [aboutme, setAboutme] = useState(false)
-
-  const handleAboutme = () => {
-    
-    if(aboutme === false){
-      setAboutme(true)
-    }
-    else {
-      setAboutme(false)
-    }
-  }
+  const screenRef = useRef(null)
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -46,32 +22,35 @@ function App() {
 
   return (
     <>
-      <div className={swap ? 'brightness-[96%]' : 'brightness-100 hue-rotate-[5deg]'}>
-        <div className='flex justify-center items-center w-screen h-screen bg-black font-main text-black font-black brightness-[90%]'>
-          <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ duration: 0.7, ease: 'easeOut' }} exit={{ scale: 0 }}
-            className='w-[55%] h-[80%] -translate-y-4 bg-[url("./imgs/macbg.png")] bg-cover rounded-lg'>
+      <div className={swap ? 'brightness-[100%]' : 'brightness-[103%] hue-rotate-[5deg]'}>
+        <div className='flex justify-center items-center w-screen h-screen bg-black font-chicago leading-5 font-normal text-black'>
 
-            <Navbar />
-            <div className='flex justify-center items-center h-1/2'>
+          <motion.div
+            ref={screenRef}
+            initial={{ opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 2, ease: 'easeIn' }} exit={{ scale: 0 }}
+            className='stripes w-[65%] h-[85%] 2xl:w-[55%] 2xl:h-[75%] -translate-y-4 2xl:-translate-y-[-2.5rem] bg-[url("./imgs/bg.png")] bg-repeat rounded-lg'>
 
-              <button className='flex flex-col items-center w-[14%]' onClick={handleAboutme}>
-                <div className='w-[40%] mb-2'>
-                  <img src={Folder} className={aboutme ? 'invert' : ''} alt='folder' />
-                </div>
+              <Navbar />
 
-                <div className={ aboutme ? 'flex items-center justify-center w-[100%] text-white bg-black h-[1.5rem] text-[1.5rem] break-words m-0 p-0' : ' flex items-center justify-center w-[100%] text-center bg-slate-100 h-[1.5rem] text-[1.5rem] break-words m-0 p-0'}>
-                  about_me.txt
-                </div>
-
+              {/* About me folder icon */}
+              <button onClick={() => setOpen(true)} className=' translate-x-[80%] translate-y-[100%] w-[12%]'>
+                <AboutMe />
               </button>
-            </div>
 
+              {/* Opened about me folder */}
+              {open &&
+                <OpenedAboutme screenRef={screenRef} setOpen={setOpen} />}
 
+              {/* My projects folder icon */}
+              <div className=' translate-x-[550%] translate-y-[170%] w-[12%]'>
+                <MyProjects />
+              </div>
           </motion.div>
+
         </div>
       </div>
     </>
   );
-}
 
+}
 export default App;

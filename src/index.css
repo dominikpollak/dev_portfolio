@@ -4,3 +4,24 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+@font-face {
+    font-family: 'Chicago';
+    src: url('../public/fonts/ChicagoFLF.ttf') format('truetype');
+  }
+
+
+@layer components{
+  
+  .stripes::before{
+    position: absolute;
+    content: '';
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(rgba(18,16,16,0) 50%,rgba(0,0,0,.16) 50%),linear-gradient(90deg,rgba(255,0,0,.05),rgba(0,255,0,.02),rgba(0,0,255,.05));
+    z-index: 50;
+    pointer-events: none;
+    background-size: 100% 2px,3px 100%;
+  }
+}  
