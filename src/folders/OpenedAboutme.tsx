@@ -1,15 +1,16 @@
-import { motion } from "framer-motion"
+import { motion, useDragControls } from "framer-motion"
 import { RefObject, useState } from "react"
 
 interface Props {
     screenRef: RefObject<HTMLInputElement>,
-    setOpen: React.Dispatch<React.SetStateAction<boolean>>
+    setOpenAboutme: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const OpenedAboutme: React.FC<Props> = ({ screenRef, setOpen }) => {
 
-    const [isDraggable, setIsDraggable] = useState(true)
+const OpenedAboutme: React.FC<Props> = ({ screenRef, setOpenAboutme }) => {
+
     const [dark, setDark] = useState(false)
+    const dragControls = useDragControls()
 
 
     const handleClose = () => {
@@ -17,23 +18,29 @@ const OpenedAboutme: React.FC<Props> = ({ screenRef, setOpen }) => {
 
         setTimeout(() => {
             setDark(false)
-            setOpen(false)
+            setOpenAboutme(false)
         }, 60)
+    }
+
+    function startDrag(e: any) {
+        dragControls.start(e)
     }
 
     return (
         <motion.div
             className='absolute bg-white border-[1.5px] border-black block min-h-[25px] w-[40%] h-[50%] z-40 box-border overflow-hidden resize top-[4rem] left-[7rem]'
             initial={{ scale: 0, originX: 0, originY: 0 }} animate={{ scale: 1 }} transition={{ duration: 1.2 }}
-            drag={isDraggable}
+            drag
             dragMomentum={false}
             dragConstraints={screenRef}
+            dragListener={false}
             dragElastic={false}
-        // onDragEnd={() => setIsDraggable(false)}
+            dragControls={dragControls}
         >
 
-            <div
-                className='relative h-[25px] border-b-[1.5px] border-black bg-white flex items-center select-none'
+            <motion.div
+                onPointerDown={startDrag}
+                className='relative h-[25px] border-b-[1.5px] border-black flex items-center select-none'
             // onClick={() => setIsDraggable(true)}
             >
 
@@ -49,23 +56,31 @@ const OpenedAboutme: React.FC<Props> = ({ screenRef, setOpen }) => {
                         about_me.txt
                     </div>
                 </div>
-            </div>
+            </motion.div>
 
             <div
-                className='flex justify-start flex-row p-3 h-full w-full overflow-y-auto '>
+                className='flex justify-start flex-row h-[90%] w-full overflow-y-auto '>
 
-                <div className='text-[0.9rem] z-[60] select-none w-full h-full'>
+                <div className='text-[0.9rem] px-5 py-4  z-[60] select-none w-full h-full'>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto delectus eos est quidem maiores? Molestiae voluptatum minus nam unde magni ipsam veniam vel, facere a provident explicabo cupiditate, dignissimos repellendus?
+                        My name is Dominik Pollák and this is my portfolio website. I'm an art student at Masaryk University with a burning passion for programming.
                     </p>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis molestiae vitae voluptatum, similique, itaque, expedita quod et illo aperiam unde nobis ut cum ipsum quidem temporibus! Recusandae numquam accusamus magni.
+                        I graduated with honors in IT but after I finished high school I decided to try something different. After a few years I realized that programming is my true passion.
                     </p>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae, expedita eaque nobis eum quod nemo sed inventore at minus sint mollitia laboriosam omnis unde veritatis cupiditate voluptas, cumque enim fugiat?
+                        I also realized that I have something that most of the fellow frontend developers don't have - an aesthetic sense.
                     </p>
                     <p>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum aperiam consequatur ad eligendi sit iure dolores perspiciatis incidunt id deleniti quae, et dignissimos ullam provident inventore temporibus beatae quia tempora!
+                        Day by day I'm being more and more proficient developer and I'm excited to show you why in this website. In the my_projects folder you will find the projects I'm the most proud of. In the navbar you'll find contact information.
+                    </p>
+                    <br />
+
+                    <p>
+                        My skillset:
+                    </p>
+                    <p>
+                        Javascript/Typescript, CSS, HTML, React, NextJS, Git, Tailwind CSS, REST, Redux, Photoshop
                     </p>
                 </div>
             </div>

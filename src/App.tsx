@@ -4,12 +4,14 @@ import Navbar from './components/Navbar'
 import AboutMe from './components/Aboutme'
 import MyProjects from './components/MyProjects'
 import OpenedAboutme from './folders/OpenedAboutme'
+import OpenedMyProjects from './folders/OpenedMyProjects'
 
 
 function App() {
 
   const [swap, setSwap] = useState(false)
-  const [open, setOpen] = useState(false)
+  const [openAboutme, setOpenAboutme] = useState(false)
+  const [openMyProjects, setOpenMyProjects] = useState(false)
 
   const screenRef = useRef(null)
 
@@ -35,18 +37,23 @@ function App() {
               <Navbar />
 
               {/* About me folder icon */}
-              <button onClick={() => setOpen(true)} className=' translate-x-[80%] translate-y-[100%] w-[12%]'>
+              <button onClick={() => setOpenAboutme(true)} className=' translate-x-[80%] translate-y-[100%] w-[12%]'>
                 <AboutMe />
               </button>
 
               {/* Opened about me folder */}
-              {open &&
-                <OpenedAboutme screenRef={screenRef} setOpen={setOpen} />}
+              {openAboutme &&
+                <OpenedAboutme screenRef={screenRef} setOpenAboutme={setOpenAboutme} />}
 
               {/* My projects folder icon */}
-              <div className=' translate-x-[550%] translate-y-[170%] w-[12%]'>
+              <button onClick={()=> setOpenMyProjects(true)} className=' translate-x-[550%] translate-y-[170%] w-[12%]'>
                 <MyProjects />
-              </div>
+              </button>
+
+              {/* Opened my_projects folder */}
+              {openMyProjects &&
+                <OpenedMyProjects screenRef={screenRef} setOpenMyProjects={setOpenMyProjects}/>}
+
             </motion.div>
           </div>
         </div>
