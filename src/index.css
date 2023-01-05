@@ -12,10 +12,6 @@
 
 @layer components{
 
-  .scrollb{
-    overflow-y: auto !important;
-  }
-
   .stripes::before{
     position: absolute;
     content: '';
@@ -24,7 +20,7 @@
     bottom: 0;
     left: 0;
     background: linear-gradient(rgba(18,16,16,0) 50%,rgba(0,0,0,.16) 50%),linear-gradient(90deg,rgba(255,0,0,.05),rgba(0,255,0,.02),rgba(0,0,255,.05));
-    z-index: 50;
+    z-index: 70;
     pointer-events: none;
     background-size: 100% 2px,3px 100%;
   }

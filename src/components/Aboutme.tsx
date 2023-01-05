@@ -23,7 +23,7 @@ export default function AboutMe() {
   return (
         <div className='flex flex-col items-center' onClick={handleAboutme}>
                 <div className='w-[33%] mb-2'>
-                  <img src={TextIcon} className={aboutme ? 'invert' : 'brightness-[125%]'} alt='folder' />
+                  <img src={TextIcon} className={aboutme ? 'invert' : 'brightness-[125%]'} alt='text file' />
                 </div>
 
                 <div

@@ -19,8 +19,7 @@ export default function MyProjects() {
         }
     }
     return (
-        <>
-            <div className='flex flex-col items-center cursor-pointer select-none' onClick={handleMyprojects}>
+            <div className='flex flex-col items-center' onClick={handleMyprojects}>
                 <div className='w-[33%] mb-2'>
                     <img src={FolderIcon} className={myprojects ? 'invert' : 'brightness-[115%]'} alt='folder' />
                 </div>
@@ -30,6 +29,5 @@ export default function MyProjects() {
                     my_projects
                 </div>
             </div>
-        </>
     )
 }

@@ -3,6 +3,10 @@ import Time from './Time'
 import AppleBlack from '../imgs/apple-black.png'
 import AppleWhite from '../imgs/apple-white.png'
 import { useState, useRef } from 'react'
+import FileTab from '../NavbarTabs/FileTab'
+import EditTab from '../NavbarTabs/EditTab'
+import HelpTab from '../NavbarTabs/HelpTab'
+import MacTab from '../NavbarTabs/MacTab'
 
 
 export default function Navbar() {
@@ -13,7 +17,7 @@ export default function Navbar() {
     const [fileTab, setFileTab] = useState(false)
     const [editTab, setEditTab] = useState(false)
     const [helpTab, setHelpTab] = useState(false)
-    const [close, setClose] = useState(false)
+    // const [close, setClose] = useState(false)
     const navbarRef = useRef<HTMLInputElement>(null);
 
     const handleLogo = () => {
@@ -75,12 +79,12 @@ export default function Navbar() {
 
     const handleDocumentClick = (e: any) => {
         if (navbarRef.current && !navbarRef.current.contains(e.target)) {
-          setFileTab(false);
-          setEditTab(false);
-          setHelpTab(false);
-          setLogo(AppleBlack)
+            setFileTab(false);
+            setEditTab(false);
+            setHelpTab(false);
+            setLogo(AppleBlack)
         }
-      };
+    };
 
     useEffect(() => {
         document.addEventListener('click', handleDocumentClick);
@@ -93,7 +97,7 @@ export default function Navbar() {
     return (
         <>
             <div className='w-full top-0 h-[5%] flex justify-between items-center border-b-[2px] border-black bg-white rounded-t-lg stripes'>
-            
+
 
                 <div ref={navbarRef} className='flex h-full md:w-[32%] xl:w-[23%] items-center justify-between ml-[0.7rem]'>
 
@@ -104,11 +108,26 @@ export default function Navbar() {
                         onClick={handleLogo}>
                         <img className='md:w-[65%] xl:w-[55%]' src={logo} alt="Apple logo" />
                     </button>
+                    {logo === AppleWhite &&
+                        <MacTab />}
 
                     <div className='md:text-[0.9rem] xl:text-[1rem] w-[85%] flex justify-between h-full'>
-                        <button onClick={handleFileTab} className={fileTab ? 'text-slate-100 bg-black w-full' : 'text-black bg-transparent w-full'}>File</button>
-                        <button onClick={handleEditTab} className={editTab ? 'text-slate-100 bg-black w-full' : 'text-black bg-transparent w-full'}>Edit</button>
-                        <button onClick={handleHelpTab} className={helpTab ? 'text-slate-100 bg-black w-full' : 'text-black bg-transparent w-full'}>Help</button>
+                        <button onClick={handleFileTab} className={fileTab ? 'text-slate-100 bg-black w-full' : 'text-black bg-transparent w-full'}>
+                            File
+                            {fileTab &&
+                                <FileTab />}</button>
+
+                        <button onClick={handleEditTab} className={editTab ? 'text-slate-100 bg-black w-full' : 'text-black bg-transparent w-full'}>
+                            Edit
+                            {editTab &&
+                                <EditTab />}</button>
+
+
+                        <button onClick={handleHelpTab} className={helpTab ? 'text-slate-100 bg-black w-full' : 'text-black bg-transparent w-full'}>
+                            Help
+                            {helpTab &&
+                                <HelpTab />}</button>
+
                     </div>
 
                 </div>
@@ -118,6 +137,8 @@ export default function Navbar() {
                 </div>
 
             </div>
+
+
         </>
     )
 }

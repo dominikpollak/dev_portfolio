@@ -1,19 +1,59 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, createContext } from 'react'
 import { motion, } from 'framer-motion'
 import Navbar from './components/Navbar'
 import AboutMe from './components/Aboutme'
 import MyProjects from './components/MyProjects'
 import OpenedAboutme from './folders/OpenedAboutme'
 import OpenedMyProjects from './folders/OpenedMyProjects'
+import OpenedAlienPls from './folders/OpenedAlienPls'
+import 'overlayscrollbars/overlayscrollbars.css';
 
+type AlienPlsContextType = {
+  handleAlienPlsClick: () => void;
+};
+
+export const AlienContext = createContext<AlienPlsContextType | undefined>(undefined);
 
 function App() {
 
-  const [swap, setSwap] = useState(false)
-  const [openAboutme, setOpenAboutme] = useState(false)
-  const [openMyProjects, setOpenMyProjects] = useState(false)
+  const [swap, setSwap] = useState<boolean>(false)
+
+  const [openAboutme, setOpenAboutme] = useState<boolean>(false)
+  const [openMyProjects, setOpenMyProjects] = useState<boolean>(false)
+  const [openAlienPls, setOpenAlienPls] = useState<boolean>(false)
+
+  const [AboutmezIndex, setAboutmeZIndex] = useState<number>(40)
+  const [myProjectsZIndex, setMyProjectsZIndex] = useState<number>(40)
+  const [alienPlsZIndex, setAlienPlsZIndex] = useState<number>(40)
 
   const screenRef = useRef(null)
+
+
+  const handleAboutmeClick = () : void => {
+
+    setOpenAboutme(true)
+    setAboutmeZIndex(50)
+    setMyProjectsZIndex(40)
+    setAlienPlsZIndex(40)
+  
+  }
+
+  const handleMyProjectsClick = () : void => {
+
+    setOpenMyProjects(true) 
+    setAboutmeZIndex(40)
+    setMyProjectsZIndex(50)
+    setAlienPlsZIndex(40)
+
+  }
+
+  const handleAlienPlsClick = () : void => {
+
+    setOpenAlienPls(true)
+    setAlienPlsZIndex(50)
+    setAboutmeZIndex(40)
+    setMyProjectsZIndex(40)
+  }
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -24,7 +64,7 @@ function App() {
 
   return (
     <>
-      <div className={swap ? 'brightness-[100%]' : 'brightness-[103%] hue-rotate-[5deg]'}>
+      <div className={swap ? 'brightness-[100%]' : 'brightness-[104%] hue-rotate-[5deg]'}>
         <div className='w-screen h-screen bg-black font-chicago leading-5 font-normal text-black overflow-hidden'>
 
           <div className='fixed flex justify-center items-center h-[93%] w-full'>
@@ -34,25 +74,36 @@ function App() {
               initial={{ opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 2, ease: 'easeIn' }} exit={{ scale: 0 }}
               className='relative stripes w-[65%] h-[90%] 2xl:w-[50%] 2xl:h-[80%] bg-[url("./imgs/bg.png")] bg-repeat rounded-lg overflow-hidden box-border'>
 
+              <AlienContext.Provider value={{handleAlienPlsClick}}>
               <Navbar />
+              </AlienContext.Provider>
 
               {/* About me folder icon */}
-              <button onClick={() => setOpenAboutme(true)} className=' translate-x-[80%] translate-y-[100%] w-[12%]'>
+              <button onClick={handleAboutmeClick} className=' translate-x-[80%] translate-y-[100%] w-[12%] z-30'>
                 <AboutMe />
+              </button>
+
+              {/* My projects folder icon */}
+              <button onClick={handleMyProjectsClick} className=' translate-x-[550%] translate-y-[170%] w-[12%] z-30'>
+                <MyProjects />
               </button>
 
               {/* Opened about me folder */}
               {openAboutme &&
-                <OpenedAboutme screenRef={screenRef} setOpenAboutme={setOpenAboutme} />}
-
-              {/* My projects folder icon */}
-              <button onClick={()=> setOpenMyProjects(true)} className=' translate-x-[550%] translate-y-[170%] w-[12%]'>
-                <MyProjects />
-              </button>
+                <div onMouseDown={handleAboutmeClick}>
+                  <OpenedAboutme screenRef={screenRef} setOpenAboutme={setOpenAboutme} zIndex={AboutmezIndex} />
+                </div>}
 
               {/* Opened my_projects folder */}
               {openMyProjects &&
-                <OpenedMyProjects screenRef={screenRef} setOpenMyProjects={setOpenMyProjects}/>}
+                <div onMouseDown={handleMyProjectsClick}>
+                  <OpenedMyProjects screenRef={screenRef} setOpenMyProjects={setOpenMyProjects} zIndex={myProjectsZIndex} />
+                </div>}
+
+                {openAlienPls &&
+                <div onMouseDown={handleAlienPlsClick}>
+                <OpenedAlienPls screenRef={screenRef} zIndex={alienPlsZIndex} setOpenAlienPls={setOpenAlienPls} />
+                </div>}
 
             </motion.div>
           </div>
