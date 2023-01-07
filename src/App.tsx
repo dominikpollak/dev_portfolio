@@ -16,8 +16,6 @@ export const AlienContext = createContext<AlienPlsContextType | undefined>(undef
 
 function App() {
 
-  const [swap, setSwap] = useState<boolean>(false)
-
   const [openAboutme, setOpenAboutme] = useState<boolean>(false)
   const [openMyProjects, setOpenMyProjects] = useState<boolean>(false)
   const [openAlienPls, setOpenAlienPls] = useState<boolean>(false)
@@ -28,26 +26,25 @@ function App() {
 
   const screenRef = useRef(null)
 
-
-  const handleAboutmeClick = () : void => {
+  const handleAboutmeClick = (): void => {
 
     setOpenAboutme(true)
     setAboutmeZIndex(50)
     setMyProjectsZIndex(40)
     setAlienPlsZIndex(40)
-  
+
   }
 
-  const handleMyProjectsClick = () : void => {
+  const handleMyProjectsClick = (): void => {
 
-    setOpenMyProjects(true) 
+    setOpenMyProjects(true)
     setAboutmeZIndex(40)
     setMyProjectsZIndex(50)
     setAlienPlsZIndex(40)
 
   }
 
-  const handleAlienPlsClick = () : void => {
+  const handleAlienPlsClick = (): void => {
 
     setOpenAlienPls(true)
     setAlienPlsZIndex(50)
@@ -55,27 +52,26 @@ function App() {
     setMyProjectsZIndex(40)
   }
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setSwap(!swap)
-    }, 10)
-    return () => clearInterval(interval)
-  }, [swap])
+  const closeAllFolders = () => {
+    setOpenAboutme(false)
+    setOpenMyProjects(false)
+    setOpenAlienPls(false)
+  }
 
   return (
     <>
-      <div className={swap ? 'brightness-[100%]' : 'brightness-[104%] hue-rotate-[5deg]'}>
+      <div className='crt'>
         <div className='w-screen h-screen bg-black font-chicago leading-5 font-normal text-black overflow-hidden'>
 
           <div className='fixed flex justify-center items-center h-[93%] w-full'>
 
             <motion.div
               ref={screenRef}
-              initial={{ opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 2, ease: 'easeIn' }} exit={{ scale: 0 }}
-              className='relative stripes w-[65%] h-[90%] 2xl:w-[50%] 2xl:h-[80%] bg-[url("./imgs/bg.png")] bg-repeat rounded-lg overflow-hidden box-border'>
+              initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 2, ease: 'easeIn' }} exit={{ scale: 0 }}
+              className='relative stripes w-[60%] h-[90%] 2xl:w-[50%] 2xl:h-[80%] bg-[url("./imgs/bg.png")] bg-repeat rounded-lg overflow-hidden box-border'>
 
-              <AlienContext.Provider value={{handleAlienPlsClick}}>
-              <Navbar />
+              <AlienContext.Provider value={{ handleAlienPlsClick }}>
+                <Navbar closeAllFolders={closeAllFolders}/>
               </AlienContext.Provider>
 
               {/* About me folder icon */}
@@ -100,9 +96,9 @@ function App() {
                   <OpenedMyProjects screenRef={screenRef} setOpenMyProjects={setOpenMyProjects} zIndex={myProjectsZIndex} />
                 </div>}
 
-                {openAlienPls &&
+              {openAlienPls &&
                 <div onMouseDown={handleAlienPlsClick}>
-                <OpenedAlienPls screenRef={screenRef} zIndex={alienPlsZIndex} setOpenAlienPls={setOpenAlienPls} />
+                  <OpenedAlienPls screenRef={screenRef} zIndex={alienPlsZIndex} setOpenAlienPls={setOpenAlienPls} />
                 </div>}
 
             </motion.div>

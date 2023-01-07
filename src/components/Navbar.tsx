@@ -8,8 +8,11 @@ import EditTab from '../NavbarTabs/EditTab'
 import HelpTab from '../NavbarTabs/HelpTab'
 import MacTab from '../NavbarTabs/MacTab'
 
+interface Props {
+    closeAllFolders: () => void
+}
 
-export default function Navbar() {
+const Navbar: React.FC<Props> = ({ closeAllFolders }) => {
 
     const initialTime = new Date().toLocaleTimeString('en-GB', { weekday: "short", year: "2-digit", month: "numeric", day: "numeric", hour: '2-digit', minute: '2-digit' })
 
@@ -17,8 +20,15 @@ export default function Navbar() {
     const [fileTab, setFileTab] = useState(false)
     const [editTab, setEditTab] = useState(false)
     const [helpTab, setHelpTab] = useState(false)
-    // const [close, setClose] = useState(false)
     const navbarRef = useRef<HTMLInputElement>(null);
+    // const editTabRef = useRef<HTMLDivElement>(null);
+
+    const closeAllTabs = () => {
+        setEditTab(false)
+        setFileTab(false)
+        setHelpTab(false)
+        setLogo(AppleBlack)
+    }
 
     const handleLogo = () => {
 
@@ -54,12 +64,11 @@ export default function Navbar() {
             setFileTab(false)
             setHelpTab(false)
             setLogo(AppleBlack)
-
-
         }
         else {
             setEditTab(false)
         }
+
     }
 
     const handleHelpTab = () => {
@@ -70,7 +79,6 @@ export default function Navbar() {
             setFileTab(false)
             setLogo(AppleBlack)
 
-
         }
         else {
             setHelpTab(false)
@@ -78,13 +86,12 @@ export default function Navbar() {
     }
 
     const handleDocumentClick = (e: any) => {
-        if (navbarRef.current && !navbarRef.current.contains(e.target)) {
-            setFileTab(false);
-            setEditTab(false);
-            setHelpTab(false);
-            setLogo(AppleBlack)
+
+        if (!navbarRef.current?.contains(e.target)) {
+            closeAllTabs()
         }
     };
+
 
     useEffect(() => {
         document.addEventListener('click', handleDocumentClick);
@@ -112,21 +119,30 @@ export default function Navbar() {
                         <MacTab />}
 
                     <div className='md:text-[0.9rem] xl:text-[1rem] w-[85%] flex justify-between h-full'>
-                        <button onClick={handleFileTab} className={fileTab ? 'text-slate-100 bg-black w-full' : 'text-black bg-transparent w-full'}>
-                            File
+
+                        <div className='w-full h-full'>
+                            <button onClick={handleFileTab} className={fileTab ? 'text-slate-100 bg-black w-full h-full' : 'text-black bg-transparent w-full h-full'}>
+                                File
+                            </button>
                             {fileTab &&
-                                <FileTab />}</button>
+                                <FileTab closeAllFolders={closeAllFolders} closeAllTabs={closeAllTabs} />}
+                        </div>
 
-                        <button onClick={handleEditTab} className={editTab ? 'text-slate-100 bg-black w-full' : 'text-black bg-transparent w-full'}>
-                            Edit
+                        <div className='w-full h-full'>
+                            <button onClick={handleEditTab} className={editTab ? 'text-slate-100 bg-black w-full h-full' : 'text-black bg-transparent h-full w-full'}>
+                                Edit
+                            </button>
                             {editTab &&
-                                <EditTab />}</button>
+                                <EditTab />}
+                        </div>
 
-
-                        <button onClick={handleHelpTab} className={helpTab ? 'text-slate-100 bg-black w-full' : 'text-black bg-transparent w-full'}>
-                            Help
+                        <div className='w-full h-full'>
+                            <button onClick={handleHelpTab} className={helpTab ? 'text-slate-100 bg-black w-full h-full' : 'text-black bg-transparent w-full h-full'}>
+                                Help
+                            </button>
                             {helpTab &&
-                                <HelpTab />}</button>
+                                <HelpTab closeAllTabs={closeAllTabs} />}
+                        </div>
 
                     </div>
 
@@ -142,3 +158,5 @@ export default function Navbar() {
         </>
     )
 }
+
+export default Navbar

@@ -24,4 +24,24 @@
     pointer-events: none;
     background-size: 100% 2px,3px 100%;
   }
+
+  @keyframes crt-effect {
+    0% {
+      filter: brightness(100%) hue-rotate(0deg);
+      -webkit-filter: brightness(100%) hue-rotate(0deg);
+}
+    50% {
+      filter: brightness(104%) hue-rotate(5deg);
+      -webkit-filter: brightness(104%) hue-rotate(5deg);
+}
+    100% {
+      filter: brightness(100%) hue-rotate(0deg);
+      -webkit-filter: brightness(100%) hue-rotate(0deg);
+}
+  }
+
+  .crt {
+    animation: crt-effect 0.1s infinite;
+    -webkit-animation: crt-effect 0.1s infinite;
+}
 }  
