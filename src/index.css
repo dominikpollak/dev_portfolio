@@ -31,8 +31,8 @@
       -webkit-filter: brightness(100%) hue-rotate(0deg);
 }
     50% {
-      filter: brightness(104%) hue-rotate(5deg);
-      -webkit-filter: brightness(104%) hue-rotate(5deg);
+      filter: brightness(103%) hue-rotate(5deg);
+      -webkit-filter: brightness(103%) hue-rotate(5deg);
 }
     100% {
       filter: brightness(100%) hue-rotate(0deg);
@@ -41,7 +41,7 @@
   }
 
   .crt {
-    animation: crt-effect 0.1s infinite;
+    animation: crt-effect 0.05s infinite;
     -webkit-animation: crt-effect 0.1s infinite;
 }
 }  

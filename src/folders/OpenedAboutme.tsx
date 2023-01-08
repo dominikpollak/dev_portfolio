@@ -3,6 +3,7 @@ import React, { RefObject, useState } from "react"
 import { OverlayScrollbarsComponent } from "overlayscrollbars-react"
 import BoxWhite from '../imgs/box-white.png'
 import BoxBlack from '../imgs/box-black.png'
+import Handler from '../imgs/handler.png'
 
 interface Props {
     screenRef: RefObject<HTMLInputElement>,
@@ -31,7 +32,7 @@ const OpenedAboutme: React.FC<Props> = ({ screenRef, setOpenAboutme, zIndex }) =
     return (
         <motion.div
             style={{ zIndex: zIndex }}
-            className={`absolute bg-white border-[1.5px] border-black block min-h-[25px] w-[40%] h-[50%] box-border overflow-hidden resize top-[4rem] left-[7rem] select-none`}
+            className={`absolute bg-white border-[1.5px] border-black block min-h-[25px] w-[40%] h-[50%] box-border overflow-hidden resize top-[4rem] left-[7rem]`}
             initial={{ scale: 0, originX: 0, originY: 0 }} animate={{ scale: 1 }} transition={{ duration: 1 }}
             drag
             dragMomentum={false}
@@ -43,16 +44,13 @@ const OpenedAboutme: React.FC<Props> = ({ screenRef, setOpenAboutme, zIndex }) =
 
             <motion.div
                 onPointerDown={startDrag}
-                className='relative h-[25px] border-b-[1.5px] border-black flex items-center'
-            // onClick={() => setIsDraggable(true)}
-            >
+                className='relative h-[25px] border-b-[1.5px] border-black flex items-center'>
 
-
-                <div className='absolute z-0 h-[68%] w-[99.7%]' style={{ background: 'repeating-linear-gradient(to bottom, #000, #000 1px, #fff 1px, #fff 2px)' }} />
+                <div className='absolute z-0 h-[60%] ml-[0.2rem] w-[calc(100%-6px)] bg-repeat-x bg-center bg-contain' style={{ backgroundImage: `url(${Handler})` }} />
 
                 <div
-                    className='ml-[0.2rem] text-[1.6rem] cursor-pointer h-[100%] w-[20%] flex justify-left items-center z-20' onClick={() => { handleClose() }}>
-                    {!dark ? <img className="h-[81%] mb-[0.5px]" src={BoxWhite} alt="" /> : <img className="h-[81%] mb-[0.5px]" src={BoxBlack} alt="" />}
+                    className='ml-[0.5rem] text-[1.6rem] cursor-pointer h-[100%] w-[30px] flex justify-left items-center z-20' onClick={() => { handleClose() }}>
+                    {!dark ? <img className="h-[70%] p-[0.3px] bg-white" src={BoxWhite} alt="" /> : <img className="h-[70%] p-[0.3px]" src={BoxBlack} alt="" />}
 
                 </div>
 

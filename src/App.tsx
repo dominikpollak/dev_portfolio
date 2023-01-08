@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, createContext } from 'react'
+import { useState, useRef, createContext } from 'react'
 import { motion, } from 'framer-motion'
 import Navbar from './components/Navbar'
 import AboutMe from './components/Aboutme'
@@ -59,8 +59,7 @@ function App() {
   }
 
   return (
-    <>
-      <div className='crt'>
+
         <div className='w-screen h-screen bg-black font-chicago leading-5 font-normal text-black overflow-hidden'>
 
           <div className='fixed flex justify-center items-center h-[93%] w-full'>
@@ -68,7 +67,7 @@ function App() {
             <motion.div
               ref={screenRef}
               initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 2, ease: 'easeIn' }} exit={{ scale: 0 }}
-              className='relative stripes w-[60%] h-[90%] 2xl:w-[50%] 2xl:h-[80%] bg-[url("./imgs/bg.png")] bg-repeat rounded-lg overflow-hidden box-border'>
+              className='relative crt stripes w-[60%] h-[90%] 2xl:w-[50%] 2xl:h-[80%] bg-[url("./imgs/bg.png")] bg-repeat rounded-lg overflow-hidden box-border select-none'>
 
               <AlienContext.Provider value={{ handleAlienPlsClick }}>
                 <Navbar closeAllFolders={closeAllFolders}/>
@@ -104,8 +103,7 @@ function App() {
             </motion.div>
           </div>
         </div>
-      </div>
-    </>
+        
   );
 
 }
