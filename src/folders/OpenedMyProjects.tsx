@@ -105,14 +105,26 @@ const OpenedMyProjects: React.FC<Props> = ({ screenRef, setOpenMyProjects, zInde
             <motion.div
                 className={isDragging ? 'flex flex-col h-[95%] w-full overflow-y-auto pointer-events-none leading-7' : 'flex flex-col h-[95%] w-full overflow-y-auto pointer-events-auto leading-7'}>
                 <ul>
-                    <li className="text-center cursor-pointer border-y-2 border-black hover:bg-black hover:text-white">
+                    <li className="flex justify-around items-center border-y-2 border-black">
                         timepark.app
+                        <div className="flex flex-col justify-around">
+                            <a href="https://timepark-app.vercel.app/" target='_blank' rel='noreferrer' className=" hover:bg-black hover:text-white cursor-pointer px-2">Site</a>
+                            <a href="https://github.com/dominikpollak/timepark-app" target='_blank' rel='noreferrer' className=" hover:bg-black hover:text-white cursor-pointer px-2">Repo</a>
+                        </div>
                     </li>
-                    <li className="text-center cursor-pointer border-b-2 border-black hover:bg-black hover:text-white">
+                    <li className="flex justify-around items-center border-b-2 border-black">
                         art_portfolio
+                        <div className="flex flex-col justify-around">
+                            <a href="https://portfolio-one-lovat-59.vercel.app/" target='_blank' rel='noreferrer' className=" hover:bg-black hover:text-white cursor-pointer px-2">Site</a>
+                            <a href="https://github.com/dominikpollak/portfolio" target='_blank' rel='noreferrer' className=" hover:bg-black hover:text-white cursor-pointer px-2">Repo</a>
+                        </div>
                     </li>
-                    <li className="text-center cursor-pointer border-b-2 border-black hover:bg-black hover:text-white">
+                    <li className="flex justify-around items-center border-b-2 border-black">
                         pokedex
+                        <div className="flex flex-col justify-around">
+                            <a href="https://pokemon-ecru.vercel.app/" target='_blank' rel='noreferrer' className=" hover:bg-black hover:text-white cursor-pointer px-2">Site</a>
+                            <a href="https://github.com/dominikpollak/pokemon" target='_blank' rel='noreferrer' className=" hover:bg-black hover:text-white cursor-pointer px-2">Repo</a>
+                        </div>
                     </li>
                 </ul>
             </motion.div>
