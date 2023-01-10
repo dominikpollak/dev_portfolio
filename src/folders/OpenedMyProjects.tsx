@@ -115,14 +115,14 @@ const OpenedMyProjects: React.FC<Props> = ({ screenRef, setOpenMyProjects, zInde
                     <li className="flex justify-around items-center border-b-2 border-black">
                         art_portfolio
                         <div className="flex flex-col justify-around">
-                            <a href="https://portfolio-one-lovat-59.vercel.app/" target='_blank' rel='noreferrer' className=" hover:bg-black hover:text-white cursor-pointer px-2">Site</a>
+                            <a href="https://portfolio-dominikpollak.vercel.app/" target='_blank' rel='noreferrer' className=" hover:bg-black hover:text-white cursor-pointer px-2">Site</a>
                             <a href="https://github.com/dominikpollak/portfolio" target='_blank' rel='noreferrer' className=" hover:bg-black hover:text-white cursor-pointer px-2">Repo</a>
                         </div>
                     </li>
                     <li className="flex justify-around items-center border-b-2 border-black">
                         pokedex
                         <div className="flex flex-col justify-around">
-                            <a href="https://pokemon-ecru.vercel.app/" target='_blank' rel='noreferrer' className=" hover:bg-black hover:text-white cursor-pointer px-2">Site</a>
+                            <a href="https://pokemon-dominikpollak.vercel.app/" target='_blank' rel='noreferrer' className=" hover:bg-black hover:text-white cursor-pointer px-2">Site</a>
                             <a href="https://github.com/dominikpollak/pokemon" target='_blank' rel='noreferrer' className=" hover:bg-black hover:text-white cursor-pointer px-2">Repo</a>
                         </div>
                     </li>
