@@ -1,6 +1,5 @@
 import { motion, useDragControls } from "framer-motion"
 import React, { RefObject, useState } from "react"
-import { OverlayScrollbarsComponent } from "overlayscrollbars-react"
 import BoxWhite from '../imgs/box-white.png'
 import BoxBlack from '../imgs/box-black.png'
 import Handler from '../imgs/handler.png'
@@ -32,7 +31,7 @@ const OpenedAboutme: React.FC<Props> = ({ screenRef, setOpenAboutme, zIndex }) =
     return (
         <motion.div
             style={{ zIndex: zIndex }}
-            className={`absolute bg-white border-[1.5px] border-black block min-h-[25px] w-[40%] h-[50%] box-border overflow-hidden resize top-[4rem] left-[7rem]`}
+            className={`absolute bg-white border-[1.5px] border-black block min-h-[25px] w-[70%] xl:w-[40%] h-[50%] box-border overflow-hidden resize top-[4rem] left-[2rem] xl:left-[7rem]`}
             initial={{ scale: 0, originX: 0, originY: 0 }} animate={{ scale: 1 }} transition={{ duration: 1 }}
             drag
             dragMomentum={false}
@@ -64,30 +63,31 @@ const OpenedAboutme: React.FC<Props> = ({ screenRef, setOpenAboutme, zIndex }) =
             <div
                 className='flex justify-start flex-wrap h-full w-full p-4 pb-10 overflow-y-auto overflow-x-hidden '>
 
-                <OverlayScrollbarsComponent>
                     <div className='text-[0.9rem]'>
                         <p>
                             My name is Dominik Pollák and this is my portfolio website. I'm an art student at Masaryk University with a burning passion for programming.
                         </p>
+                        <br />
                         <p>
                             I graduated with honors in IT but after I finished high school I decided to try something different. After a few years I realized that programming is my true passion.
                         </p>
+                        <br />
                         <p>
-                            I also realized that I have something that most of the fellow frontend developers don't have - an aesthetic sense.
+                            I also realized that I have something that most of the fellow frontend developers don't have - an aesthetic sense. That means I have lots of creative design ideas and I'm able to implement them. I can also create my own icons and illustrations.
                         </p>
+                        <br />
                         <p>
-                            Day by day I'm being more and more proficient developer and I'm excited to show you why in this website. In the my_projects folder you will find the projects I'm the most proud of. In the navbar you'll find contact information.
+                            Day by day I become more and more proficient developer and I'm excited to show you why in this website. In the my_projects folder you will find the projects I'm the most proud of. In the navbar you'll find contact information.
                         </p>
                         <br />
 
                         <p>
                             My skillset:
                         </p>
-                        <p>
-                            Javascript/Typescript, CSS, HTML, React, NextJS, Git, Tailwind CSS, REST, Redux, Photoshop
+                        <p className="mt-1">
+                            Javascript/Typescript, CSS, HTML, React, NextJS, Git, Tailwind CSS, Material UI, REST, Redux, Photoshop
                         </p>
                     </div>
-                </OverlayScrollbarsComponent>
             </div>
 
         </motion.div>

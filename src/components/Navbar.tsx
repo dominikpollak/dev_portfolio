@@ -103,22 +103,22 @@ const Navbar: React.FC<Props> = ({ closeAllFolders }) => {
 
     return (
         <>
-            <div className='w-full top-0 h-[5%] flex justify-between items-center border-b-[2px] border-black bg-white rounded-t-lg stripes'>
+            <div className='w-full top-0 h-[5%] flex justify-between items-center
+                            text-[0.7rem] md:text-[0.9rem] xl:text-[1rem] border-b-[2px] border-black bg-white rounded-t-lg'>
 
 
-                <div ref={navbarRef} className='flex h-full md:w-[32%] xl:w-[23%] items-center justify-between ml-[0.7rem]'>
+                <div ref={navbarRef} className='flex h-full md:w-[32%] xl:w-[25%] items-center justify-between ml-[0.4rem] xl:ml-[0.7rem]'>
 
-                    <button
-                        className={logo === AppleBlack ?
-                            'h-[95%] md:w-[15%] xl:w-[13%] flex items-center justify-center bg-transparent rounded-sm' :
-                            'h-[95%] md:w-[15%] xl:w-[13%] flex items-center justify-center bg-black rounded-sm'}
-                        onClick={handleLogo}>
-                        <img className='md:w-[65%] xl:w-[55%]' src={logo} alt="Apple logo" />
+                    <button className={logo === AppleBlack ?
+                        'h-[95%] w-[20%] md:w-[15%] xl:w-[17%] flex items-center justify-center bg-transparent rounded-sm' :
+                        'h-[95%] w-[20%] md:w-[15%] xl:w-[17%] flex items-center justify-center bg-black rounded-sm'}
+                            onClick={handleLogo}>
+                        <img className='w-[45%] md:w-[65%] xl:w-[50%]' src={logo} alt="Apple logo" />
                     </button>
                     {logo === AppleWhite &&
-                        <MacTab />}
+                        <MacTab closeAllTabs={closeAllTabs}/>}
 
-                    <div className='md:text-[0.9rem] xl:text-[1rem] w-[85%] flex justify-between h-full'>
+                    <div className='w-[85%] flex justify-between h-full'>
 
                         <div className='w-full h-full'>
                             <button onClick={handleFileTab} className={fileTab ? 'text-slate-100 bg-black w-full h-full' : 'text-black bg-transparent w-full h-full'}>
@@ -148,7 +148,7 @@ const Navbar: React.FC<Props> = ({ closeAllFolders }) => {
 
                 </div>
 
-                <div className='md:text-[1rem] text-[1.2rem] text-black pr-4'>
+                <div className='pr-4'>
                     <Time initialTime={initialTime} />
                 </div>
 

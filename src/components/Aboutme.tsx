@@ -22,12 +22,12 @@ export default function AboutMe() {
 
   return (
         <div className='flex flex-col items-center' onClick={handleAboutme}>
-                <div className='w-[33%] mb-2'>
+                <div className='w-[66%] md:w-[45%] lg:w-[38%] mb-2'>
                   <img src={TextIcon} className={aboutme ? 'invert' : 'brightness-[125%]'} alt='text file' />
                 </div>
 
                 <div
-                className={ aboutme ? 'flex items-center justify-center px-2 text-white bg-black text-[1rem] break-words m-0 p-0' : ' flex items-center justify-center px-2 text-center bg-white text-[1rem] break-words m-0 p-0'}>
+                className={ aboutme ? 'flex items-center justify-center px-2 text-white bg-black m-0 p-0' : ' flex items-center justify-center px-2 text-center bg-white m-0 p-0'}>
 
                   about_me.txt
                 </div>

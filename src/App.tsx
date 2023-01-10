@@ -7,9 +7,11 @@ import OpenedAboutme from './folders/OpenedAboutme'
 import OpenedMyProjects from './folders/OpenedMyProjects'
 import OpenedAlienPls from './folders/OpenedAlienPls'
 import 'overlayscrollbars/overlayscrollbars.css';
+import OpenedContact from './folders/OpenedContact'
 
 type AlienPlsContextType = {
   handleAlienPlsClick: () => void;
+  handleContactClick: () => void;
 };
 
 export const AlienContext = createContext<AlienPlsContextType | undefined>(undefined);
@@ -19,12 +21,14 @@ function App() {
   const [openAboutme, setOpenAboutme] = useState<boolean>(false)
   const [openMyProjects, setOpenMyProjects] = useState<boolean>(false)
   const [openAlienPls, setOpenAlienPls] = useState<boolean>(false)
+  const [openContact, setOpenContact] = useState<boolean>(false)
 
   const [AboutmezIndex, setAboutmeZIndex] = useState<number>(40)
   const [myProjectsZIndex, setMyProjectsZIndex] = useState<number>(40)
   const [alienPlsZIndex, setAlienPlsZIndex] = useState<number>(40)
+  const [contactIndex, setContactIndex] = useState<number>(40)
 
-  const screenRef = useRef(null)
+  const screenRef = useRef<HTMLInputElement>(null)
 
   const handleAboutmeClick = (): void => {
 
@@ -32,6 +36,7 @@ function App() {
     setAboutmeZIndex(50)
     setMyProjectsZIndex(40)
     setAlienPlsZIndex(40)
+    setContactIndex(40)
 
   }
 
@@ -41,6 +46,7 @@ function App() {
     setAboutmeZIndex(40)
     setMyProjectsZIndex(50)
     setAlienPlsZIndex(40)
+    setContactIndex(40)
 
   }
 
@@ -50,60 +56,80 @@ function App() {
     setAlienPlsZIndex(50)
     setAboutmeZIndex(40)
     setMyProjectsZIndex(40)
+    setContactIndex(40)
+
   }
 
-  const closeAllFolders = () => {
+  const handleContactClick = (): void => {
+    setOpenContact(true)
+    setContactIndex(50)
+    setAboutmeZIndex(40)
+    setMyProjectsZIndex(40)
+    setAlienPlsZIndex(40)
+  }
+
+  const closeAllFolders = () : void => {
     setOpenAboutme(false)
     setOpenMyProjects(false)
     setOpenAlienPls(false)
+    setOpenContact(false)
   }
 
   return (
 
-        <div className='w-screen h-screen bg-black font-chicago leading-5 font-normal text-black overflow-hidden'>
+    <div className='w-screen h-screen bg-black font-chicago leading-5 font-normal text-black overflow-hidden'>
 
-          <div className='fixed flex justify-center items-center h-[93%] w-full'>
+      <div className='fixed flex justify-center items-center h-[93%] w-full'>
 
-            <motion.div
-              ref={screenRef}
-              initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 2, ease: 'easeIn' }} exit={{ scale: 0 }}
-              className='relative crt stripes w-[60%] h-[90%] 2xl:w-[50%] 2xl:h-[80%] bg-[url("./imgs/bg.png")] bg-repeat rounded-lg overflow-hidden box-border select-none'>
+        <motion.div
+          initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 2, ease: 'easeIn' }} exit={{ scale: 0 }}
+          className='relative crt stripes w-[100%] h-[70%] md:w-[80%] xl:w-[50%] xl:h-[80%] bg-[url("./imgs/bg.png")] bg-repeat rounded-lg overflow-hidden box-border select-none'>
 
-              <AlienContext.Provider value={{ handleAlienPlsClick }}>
-                <Navbar closeAllFolders={closeAllFolders}/>
-              </AlienContext.Provider>
+          <AlienContext.Provider value={{ handleAlienPlsClick, handleContactClick }}>
+            <Navbar closeAllFolders={closeAllFolders} />
+          </AlienContext.Provider>
 
-              {/* About me folder icon */}
-              <button onClick={handleAboutmeClick} className=' translate-x-[80%] translate-y-[100%] w-[12%] z-30'>
-                <AboutMe />
-              </button>
+          <div className='h-[95%] w-full text-[0.8rem] xl:text-[1rem]' ref={screenRef}>
+            
+            {/* About me folder icon */}
+            <button onClick={handleAboutmeClick} className='translate-x-[90%] translate-y-[100%] w-[12%] z-30'>
+              <AboutMe />
+            </button>
 
-              {/* My projects folder icon */}
-              <button onClick={handleMyProjectsClick} className=' translate-x-[550%] translate-y-[170%] w-[12%] z-30'>
-                <MyProjects />
-              </button>
+            {/* My projects folder icon */}
+            <button onClick={handleMyProjectsClick} className=' translate-x-[550%] translate-y-[170%] w-[12%] z-30'>
+              <MyProjects />
+            </button>
 
-              {/* Opened about me folder */}
-              {openAboutme &&
-                <div onMouseDown={handleAboutmeClick}>
-                  <OpenedAboutme screenRef={screenRef} setOpenAboutme={setOpenAboutme} zIndex={AboutmezIndex} />
-                </div>}
+            {/* Opened about me file */}
+            {openAboutme &&
+              <div onMouseDown={handleAboutmeClick}>
+                <OpenedAboutme screenRef={screenRef} setOpenAboutme={setOpenAboutme} zIndex={AboutmezIndex} />
+              </div>}
 
-              {/* Opened my_projects folder */}
-              {openMyProjects &&
-                <div onMouseDown={handleMyProjectsClick}>
-                  <OpenedMyProjects screenRef={screenRef} setOpenMyProjects={setOpenMyProjects} zIndex={myProjectsZIndex} />
-                </div>}
+            {/* Opened my_projects folder */}
+            {openMyProjects &&
+              <div onMouseDown={handleMyProjectsClick}>
+                <OpenedMyProjects screenRef={screenRef} setOpenMyProjects={setOpenMyProjects} zIndex={myProjectsZIndex} />
+              </div>}
 
-              {openAlienPls &&
-                <div onMouseDown={handleAlienPlsClick}>
-                  <OpenedAlienPls screenRef={screenRef} zIndex={alienPlsZIndex} setOpenAlienPls={setOpenAlienPls} />
-                </div>}
+            {/* Opened gif */}
+            {openAlienPls &&
+              <div onMouseDown={handleAlienPlsClick}>
+                <OpenedAlienPls screenRef={screenRef} zIndex={alienPlsZIndex} setOpenAlienPls={setOpenAlienPls} />
+              </div>}
 
-            </motion.div>
+            {/* Opened contact file */}
+            {openContact &&
+              <div onMouseDown={handleContactClick}>
+                <OpenedContact screenRef={screenRef} setOpenContact={setOpenContact} zIndex={contactIndex} />
+              </div>}
+
           </div>
-        </div>
-        
+        </motion.div>
+      </div>
+    </div>
+
   );
 
 }
