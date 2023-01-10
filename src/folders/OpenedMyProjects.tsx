@@ -121,7 +121,7 @@ const OpenedMyProjects: React.FC<Props> = ({
       >
         <ul>
           <li className="flex justify-around items-center border-y-2 border-black">
-            timepark.app
+            <div className="w-[50%]">timepark.app</div>
             <div className="flex flex-col justify-around">
               <a
                 href="https://timepark-app-frontend.vercel.app/"
@@ -142,7 +142,7 @@ const OpenedMyProjects: React.FC<Props> = ({
             </div>
           </li>
           <li className="flex justify-around items-center border-b-2 border-black">
-            art_portfolio
+            <div className="w-[50%]">art_portfolio</div>
             <div className="flex flex-col justify-around">
               <a
                 href="https://portfolio-dominikpollak.vercel.app/"
@@ -163,7 +163,7 @@ const OpenedMyProjects: React.FC<Props> = ({
             </div>
           </li>
           <li className="flex justify-around items-center border-b-2 border-black">
-            pokedex
+            <div className="w-[50%]">pokedex</div>
             <div className="flex flex-col justify-around">
               <a
                 href="https://pokemon-dominikpollak.vercel.app/"

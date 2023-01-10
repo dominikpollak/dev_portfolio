@@ -1,7 +1,10 @@
 {
-  "extends": ["react", "react/core-web-vitals", "eslint:recommended"],
+  "extends": ["react-app", "eslint:recommended"],
   "globals": {
     "React": "readonly"
   },
-  "rules": {}
+  "plugins": [
+    "@typescript-eslint"
+  ]
+
 }

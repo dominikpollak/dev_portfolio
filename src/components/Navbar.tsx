@@ -101,7 +101,7 @@ const Navbar: React.FC<Props> = ({ closeAllFolders }) => {
       >
         <div
           ref={navbarRef}
-          className="flex h-full md:w-[32%] xl:w-[25%] items-center justify-between ml-[0.4rem] xl:ml-[0.7rem]"
+          className="flex h-full md:w-[32%] xl:w-[30%] items-center justify-between ml-[0.4rem] xl:ml-[0.7rem]"
         >
           <button
             className={
@@ -119,7 +119,7 @@ const Navbar: React.FC<Props> = ({ closeAllFolders }) => {
           </button>
           {logo === AppleWhite && <MacTab closeAllTabs={closeAllTabs} />}
 
-          <div className="w-[85%] flex justify-between h-full">
+          <div className="w-[80%] flex justify-between h-full">
             <div className="w-full h-full">
               <button
                 onClick={handleFileTab}
