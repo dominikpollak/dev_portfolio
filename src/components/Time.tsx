@@ -6,7 +6,6 @@ interface Props {
 }
 
 const Time: React.FC<Props> = ({ initialTime }) => {
-    
   const [time, setTime] = useState(initialTime);
 
   useEffect(() => {

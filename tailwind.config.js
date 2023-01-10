@@ -1,14 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{html,js,tsx,ts}"],
+  content: ['./src/**/*.{html,js,tsx,ts}'],
   theme: {
     extend: {
       fontFamily: {
         main: ['VT323'],
-        chicago: ['Chicago']
-      }
+        chicago: ['Chicago'],
+      },
     },
   },
-  plugins: [
-  ],
-}
+  plugins: [],
+};

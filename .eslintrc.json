@@ -1,0 +1,7 @@
+{
+  "extends": ["react", "react/core-web-vitals", "eslint:recommended"],
+  "globals": {
+    "React": "readonly"
+  },
+  "rules": {}
+}
