@@ -34,7 +34,7 @@ const MacTab: React.FC<Props> = ({ closeAllTabs }) => {
     </div>
 
       {showAboutMac && 
-      <div className="absolute w-[50%] h-[25%] border-4 p-2 border-double border-black bg-white z-[60] left-[50%]
+      <div className="absolute w-[70%] xl:w-[50%] h-[25%] border-4 p-2 border-double border-black bg-white z-[60] left-[50%]
       translate-x-[-50%] top-[50%] translate-y-[-50%] flex justify-center items-center">
         Version 1.1g  ©1984 Apple Computer
         </div>}
