@@ -108,8 +108,8 @@ const OpenedMyProjects: React.FC<Props> = ({ screenRef, setOpenMyProjects, zInde
                     <li className="flex justify-around items-center border-y-2 border-black">
                         timepark.app
                         <div className="flex flex-col justify-around">
-                            <a href="https://timepark-app.vercel.app/" target='_blank' rel='noreferrer' className=" hover:bg-black hover:text-white cursor-pointer px-2">Site</a>
-                            <a href="https://github.com/dominikpollak/timepark-app" target='_blank' rel='noreferrer' className=" hover:bg-black hover:text-white cursor-pointer px-2">Repo</a>
+                            <a href="https://timepark-app-frontend.vercel.app/" target='_blank' rel='noreferrer' className=" hover:bg-black hover:text-white cursor-pointer px-2">Site</a>
+                            <a href="https://github.com/dominikpollak/timepark.app-frontend" target='_blank' rel='noreferrer' className=" hover:bg-black hover:text-white cursor-pointer px-2">Repo</a>
                         </div>
                     </li>
                     <li className="flex justify-around items-center border-b-2 border-black">
