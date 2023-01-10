@@ -9,3 +9,5 @@ This site contains the folder my_projects where are links to my main projects lo
 In the about_me.txt file you will find some basic information about me and my skills.
 
 Site is fully responsive.
+
+Inspired by kanye2049.com
