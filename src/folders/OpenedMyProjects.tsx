@@ -166,7 +166,7 @@ const OpenedMyProjects: React.FC<Props> = ({
             <div className="w-[50%]">pokedex</div>
             <div className="flex flex-col justify-around">
               <a
-                href="https://pokemon-dominikpollak.vercel.app/"
+                href="https://pokemon-ecru.vercel.app/"
                 target="_blank"
                 rel="noreferrer"
                 className=" hover:bg-black hover:text-white cursor-pointer px-2"
