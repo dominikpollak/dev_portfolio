@@ -98,15 +98,16 @@ const OpenedAboutme: React.FC<Props> = ({
           <p>
             Day by day I become more and more proficient developer and I'm
             excited to show you why in this website. In the my_projects folder
-            you will find the projects I'm the most proud of. In the navbar
-            you'll find contact information.
+            you will find the projects I'm the most proud of. Every project has a
+            link for a page visit and also a link for the Github repo.
+            In the navbar you'll find my contact information.
           </p>
           <br />
 
           <p>My skillset:</p>
           <p className="mt-1">
             Javascript/Typescript, CSS, HTML, React, NextJS, Git, Tailwind CSS,
-            Material UI, REST, Redux, ESLint Photoshop
+            Material UI, REST, Redux, ESLint, Photoshop
           </p>
         </div>
       </div>
