@@ -47,7 +47,6 @@ const OpenedAboutme: React.FC<Props> = ({
     >
       <motion.div
         onPointerDown={startDrag}
-        onTouchStart={startDrag}
         className="relative h-[25px] border-b-[1.5px] border-black flex items-center"
       >
         <div
