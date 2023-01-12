@@ -37,7 +37,7 @@ const OpenedMyProjects: React.FC<Props> = ({
   return (
     <motion.div
       style={{ zIndex: zIndex }}
-      className={`absolute bg-white border-[1.5px] border-black block min-h-[25px] w-[70%] xl:w-[40%] h-[50%] box-border overflow-hidden resize top-[15rem] left-[3rem] xl:left-[20rem]`}
+      className={`absolute top-[15rem] left-[3rem] box-border block h-[50%] min-h-[25px] w-[70%] resize overflow-hidden border-[1.5px] border-black bg-white xl:left-[20rem] xl:w-[40%]`}
       initial={{ scale: 0, originX: 0, originY: 0 }}
       animate={{ scale: 1 }}
       transition={{ duration: 1 }}
@@ -51,34 +51,34 @@ const OpenedMyProjects: React.FC<Props> = ({
     >
       <motion.div
         onPointerDown={startDrag}
-        className="relative h-[25px] border-b-[1.5px] border-black flex items-center"
+        className="relative flex h-[25px] items-center border-b-[1.5px] border-black"
       >
         <div
-          className="absolute z-0 h-[60%] ml-[0.2rem] w-[calc(100%-6px)] bg-repeat-x bg-center bg-contain"
+          className="absolute z-0 ml-[0.2rem] h-[60%] w-[calc(100%-6px)] bg-contain bg-center bg-repeat-x"
           style={{ backgroundImage: `url(${Handler})` }}
         />
 
         <div
-          className="ml-[0.5rem] text-[1.6rem] cursor-pointer h-[100%] w-[30px] flex justify-left items-center z-20"
+          className="justify-left z-20 ml-[0.5rem] flex h-[100%] w-[30px] cursor-pointer items-center text-[1.6rem]"
           onClick={() => {
             handleClose();
           }}
         >
           {!dark ? (
-            <img className="h-[70%] p-[0.3px] bg-white" src={BoxWhite} alt="" />
+            <img className="h-[70%] bg-white p-[0.3px]" src={BoxWhite} alt="" />
           ) : (
             <img className="h-[70%] p-[0.3px]" src={BoxBlack} alt="" />
           )}
         </div>
 
-        <div className="absolute flex justify-center items-center w-full h-[100%] z-10">
-          <div className="bg-white h-[100%] flex items-center px-2 text-[0.9rem]">
+        <div className="absolute z-10 flex h-[100%] w-full items-center justify-center">
+          <div className="flex h-[100%] items-center bg-white px-2 text-[0.9rem]">
             alienpls.gif
           </div>
         </div>
       </motion.div>
 
-      <motion.div className="h-[90%] w-full pointer-events-auto overflow-hidden flex justify-center items-center">
+      <motion.div className="pointer-events-auto flex h-[90%] w-full items-center justify-center overflow-hidden">
         <img
           className="pointer-events-none h-full w-auto"
           src={AlienPls}

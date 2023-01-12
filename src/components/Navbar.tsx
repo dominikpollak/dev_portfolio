@@ -96,37 +96,37 @@ const Navbar: React.FC<Props> = ({ closeAllFolders }) => {
   return (
     <>
       <div
-        className="w-full top-0 h-[5%] flex justify-between items-center
-                            text-[0.7rem] md:text-[0.9rem] xl:text-[1rem] border-b-[2px] border-black bg-white rounded-t-lg"
+        className="top-0 flex h-[7%] w-full items-center justify-between rounded-t-lg
+                            border-b-[2px] border-black bg-white text-[0.8rem] sm:text-[0.9rem] md:h-[5%] xl:text-[1rem]"
       >
         <div
           ref={navbarRef}
-          className="flex h-full md:w-[32%] xl:w-[30%] items-center justify-between ml-[0.4rem] xl:ml-[0.7rem]"
+          className="ml-[0.4rem] flex h-full w-[42%] items-center justify-between sm:w-[32%] xl:ml-[0.7rem] xl:w-[30%] 2xl:w-[26%]"
         >
           <button
             className={
               logo === AppleBlack
-                ? 'h-[95%] w-[20%] md:w-[15%] xl:w-[17%] flex items-center justify-center bg-transparent rounded-sm'
-                : 'h-[95%] w-[20%] md:w-[15%] xl:w-[17%] flex items-center justify-center bg-black rounded-sm'
+                ? 'flex h-[95%] w-[20%] items-center justify-center rounded-sm bg-transparent md:w-[11%] lg:w-[11%] xl:w-[17%]'
+                : 'flex h-[95%] w-[20%] items-center justify-center rounded-sm bg-black md:w-[11%] lg:w-[11%] xl:w-[17%]'
             }
             onClick={handleLogo}
           >
             <img
-              className="w-[45%] md:w-[65%] xl:w-[50%]"
+              className="w-[45%] md:w-[65%] xl:w-[50%] 2xl:w-[45%]"
               src={logo}
               alt="Apple logo"
             />
           </button>
           {logo === AppleWhite && <MacTab closeAllTabs={closeAllTabs} />}
 
-          <div className="w-[80%] flex justify-between h-full">
-            <div className="w-full h-full">
+          <div className="flex h-full w-[80%] justify-between">
+            <div className="h-full w-full">
               <button
                 onClick={handleFileTab}
                 className={
                   fileTab
-                    ? 'text-slate-100 bg-black w-full h-full'
-                    : 'text-black bg-transparent w-full h-full'
+                    ? 'h-full w-full bg-black text-slate-100'
+                    : 'h-full w-full bg-transparent text-black'
                 }
               >
                 File
@@ -139,13 +139,13 @@ const Navbar: React.FC<Props> = ({ closeAllFolders }) => {
               )}
             </div>
 
-            <div className="w-full h-full">
+            <div className="h-full w-full">
               <button
                 onClick={handleEditTab}
                 className={
                   editTab
-                    ? 'text-slate-100 bg-black w-full h-full'
-                    : 'text-black bg-transparent h-full w-full'
+                    ? 'h-full w-full bg-black text-slate-100'
+                    : 'h-full w-full bg-transparent text-black'
                 }
               >
                 Edit
@@ -153,13 +153,13 @@ const Navbar: React.FC<Props> = ({ closeAllFolders }) => {
               {editTab && <EditTab />}
             </div>
 
-            <div className="w-full h-full">
+            <div className="h-full w-full">
               <button
                 onClick={handleHelpTab}
                 className={
                   helpTab
-                    ? 'text-slate-100 bg-black w-full h-full'
-                    : 'text-black bg-transparent w-full h-full'
+                    ? 'h-full w-full bg-black text-slate-100'
+                    : 'h-full w-full bg-transparent text-black'
                 }
               >
                 Help
@@ -169,7 +169,7 @@ const Navbar: React.FC<Props> = ({ closeAllFolders }) => {
           </div>
         </div>
 
-        <div className="pr-4">
+        <div className="pr-2 sm:pr-4">
           <Time initialTime={initialTime} />
         </div>
       </div>

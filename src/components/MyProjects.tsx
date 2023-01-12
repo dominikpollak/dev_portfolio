@@ -17,7 +17,7 @@ export default function MyProjects() {
   };
   return (
     <div className="flex flex-col items-center" onClick={handleMyprojects}>
-      <div className="w-[66%] md:w-[45%] lg:w-[38%] mb-2">
+      <div className="mb-2 w-[66%] md:w-[45%] lg:w-[38%]">
         <img
           src={FolderIcon}
           className={myprojects ? 'invert' : 'brightness-[115%]'}
@@ -28,8 +28,8 @@ export default function MyProjects() {
       <div
         className={
           myprojects
-            ? 'flex items-center justify-center px-2 text-white bg-black break-words m-0 p-0'
-            : ' flex items-center justify-center px-2 text-center bg-white break-words m-0 p-0'
+            ? 'm-0 flex items-center justify-center break-words bg-black p-0 px-2 text-white'
+            : ' m-0 flex items-center justify-center break-words bg-white p-0 px-2 text-center'
         }
       >
         my_projects

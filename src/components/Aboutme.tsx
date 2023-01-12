@@ -18,7 +18,7 @@ export default function AboutMe() {
 
   return (
     <div className="flex flex-col items-center" onClick={handleAboutme}>
-      <div className="w-[66%] md:w-[45%] lg:w-[38%] mb-2">
+      <div className="mb-2 w-[66%] md:w-[45%] lg:w-[38%]">
         <img
           src={TextIcon}
           className={aboutme ? 'invert' : 'brightness-[125%]'}
@@ -29,8 +29,8 @@ export default function AboutMe() {
       <div
         className={
           aboutme
-            ? 'flex items-center justify-center px-2 text-white bg-black m-0 p-0'
-            : ' flex items-center justify-center px-2 text-center bg-white m-0 p-0'
+            ? 'm-0 flex items-center justify-center bg-black p-0 px-2 text-white'
+            : ' m-0 flex items-center justify-center bg-white p-0 px-2 text-center'
         }
       >
         about_me.txt
