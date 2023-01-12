@@ -31,6 +31,8 @@ const OpenedAboutme: React.FC<Props> = ({
     dragControls.start(e);
   }
 
+
+
   return (
     <motion.div
       style={{ zIndex: zIndex }}

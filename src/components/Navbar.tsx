@@ -101,7 +101,7 @@ const Navbar: React.FC<Props> = ({ closeAllFolders }) => {
       >
         <div
           ref={navbarRef}
-          className="flex h-full md:w-[32%] xl:w-[30%] items-center justify-between ml-[0.4rem] xl:ml-[0.7rem]"
+          className="flex h-full md:w-[32%] xl:w-[30%] 2xl:w-[26%] items-center justify-between ml-[0.4rem] xl:ml-[0.7rem]"
         >
           <button
             className={
@@ -112,7 +112,7 @@ const Navbar: React.FC<Props> = ({ closeAllFolders }) => {
             onClick={handleLogo}
           >
             <img
-              className="w-[45%] md:w-[65%] xl:w-[50%]"
+              className="w-[45%] md:w-[65%] xl:w-[50%] 2xl:w-[45%]"
               src={logo}
               alt="Apple logo"
             />
