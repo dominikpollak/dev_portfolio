@@ -1,7 +1,7 @@
 import { motion, useDragControls } from 'framer-motion';
 import React, { RefObject, useState } from 'react';
-import BoxWhite from '../imgs/box-white.png';
 import BoxBlack from '../imgs/box-black.png';
+import BoxWhite from '../imgs/box-white.png';
 import Handler from '../imgs/handler.png';
 
 interface Props {
@@ -30,8 +30,6 @@ const OpenedAboutme: React.FC<Props> = ({
   function startDrag(e: any) {
     dragControls.start(e);
   }
-
-
 
   return (
     <motion.div
@@ -100,9 +98,9 @@ const OpenedAboutme: React.FC<Props> = ({
           <p>
             Day by day I become more and more proficient developer and I'm
             excited to show you why in this website. In the my_projects folder
-            you will find the projects I'm the most proud of. Every project has a
-            link for a page visit and also a link for the Github repo.
-            In the navbar you'll find my contact information.
+            you will find the projects I'm the most proud of. Every project has
+            a link for a page visit and also a link for the Github repo. In the
+            navbar you'll find my contact information.
           </p>
           <br />
 

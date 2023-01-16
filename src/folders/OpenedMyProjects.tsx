@@ -60,7 +60,7 @@ const OpenedMyProjects: React.FC<Props> = ({
     <motion.div
       ref={folderRef}
       style={{ zIndex: zIndex }}
-      className={`absolute bg-white border-[1.5px] border-black block min-h-[25px] w-[70%] xl:w-[40%] h-[50%] box-border overflow-hidden resize top-[10rem] left-0 xl:left-[15rem]`}
+      className={`absolute bg-white border-[1.5px] border-black block min-h-[25px] w-[70%] xl:w-[43%] h-[50%] box-border overflow-hidden resize top-[10rem] left-0 xl:left-[15rem]`}
       initial={{ scale: 0, originX: 0, originY: 0 }}
       animate={{ scale: 1 }}
       transition={{ duration: 1 }}
