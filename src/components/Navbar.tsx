@@ -106,8 +106,8 @@ const Navbar: React.FC<Props> = ({ closeAllFolders }) => {
           <button
             className={
               logo === AppleBlack
-                ? 'flex h-[95%] w-[20%] items-center justify-center rounded-sm bg-transparent sm:w-[11%] lg:w-[11%] xl:w-[17%]'
-                : 'flex h-[95%] w-[20%] items-center justify-center rounded-sm bg-black sm:w-[11%] lg:w-[11%] xl:w-[17%]'
+                ? 'flex h-[95%] w-[20%] items-center justify-center rounded-sm bg-transparent md:w-[11%] lg:w-[11%] xl:w-[17%]'
+                : 'flex h-[95%] w-[20%] items-center justify-center rounded-sm bg-black md:w-[11%] lg:w-[11%] xl:w-[17%]'
             }
             onClick={handleLogo}
           >
