@@ -3,8 +3,5 @@
   "globals": {
     "React": "readonly"
   },
-  "plugins": [
-    "@typescript-eslint"
-  ]
-
+  "plugins": ["@typescript-eslint"]
 }

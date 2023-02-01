@@ -1,7 +1,7 @@
 import { motion, useDragControls } from 'framer-motion';
-import { RefObject, useState, useEffect, useRef } from 'react';
-import BoxWhite from '../imgs/box-white.png';
+import { RefObject, useEffect, useRef, useState } from 'react';
 import BoxBlack from '../imgs/box-black.png';
+import BoxWhite from '../imgs/box-white.png';
 import Handler from '../imgs/handler.png';
 
 interface Props {
@@ -60,7 +60,7 @@ const OpenedMyProjects: React.FC<Props> = ({
     <motion.div
       ref={folderRef}
       style={{ zIndex: zIndex }}
-      className={`absolute bg-white border-[1.5px] border-black block min-h-[25px] w-[70%] xl:w-[43%] h-[50%] box-border overflow-hidden resize top-[10rem] left-0 xl:left-[15rem]`}
+      className={`absolute top-[10rem] left-0 box-border block h-[50%] min-h-[25px] w-[70%] resize overflow-hidden border-[1.5px] border-black bg-white xl:left-[15rem] xl:w-[43%]`}
       initial={{ scale: 0, originX: 0, originY: 0 }}
       animate={{ scale: 1 }}
       transition={{ duration: 1 }}
@@ -74,39 +74,39 @@ const OpenedMyProjects: React.FC<Props> = ({
     >
       <motion.div
         onPointerDown={startDrag}
-        className="relative h-[25px] border-b-[1.5px] border-black flex items-center "
+        className="relative flex h-[25px] items-center border-b-[1.5px] border-black "
       >
         <div
-          className="absolute z-0 h-[60%] ml-[0.2rem] w-[calc(100%-6px)] bg-repeat-x bg-center bg-contain"
+          className="absolute z-0 ml-[0.2rem] h-[60%] w-[calc(100%-6px)] bg-contain bg-center bg-repeat-x"
           style={{ backgroundImage: `url(${Handler})` }}
         />
 
         <div
-          className="ml-[0.5rem] text-[1.6rem] cursor-pointer h-[100%] w-[30px] flex justify-left items-center z-20"
+          className="justify-left z-20 ml-[0.5rem] flex h-[100%] w-[30px] cursor-pointer items-center text-[1.6rem]"
           onClick={() => {
             handleClose();
           }}
         >
           {!dark ? (
-            <img className="h-[70%] p-[0.3px] bg-white" src={BoxWhite} alt="" />
+            <img className="h-[70%] bg-white p-[0.3px]" src={BoxWhite} alt="" />
           ) : (
             <img className="h-[70%] p-[0.3px]" src={BoxBlack} alt="" />
           )}
         </div>
 
-        <div className="absolute flex justify-center items-center w-full h-[100%] z-10">
-          <div className="bg-white h-[100%] flex items-center px-2 text-[0.9rem]">
+        <div className="absolute z-10 flex h-[100%] w-full items-center justify-center">
+          <div className="flex h-[100%] items-center bg-white px-2 text-[0.9rem]">
             my_projects
           </div>
         </div>
       </motion.div>
 
-      <div className="relative h-[20px] border-black flex items-center justify-center text-[0.7rem] px-2">
+      <div className="relative flex h-[20px] items-center justify-center border-black px-2 text-[0.7rem]">
         <p>12K in folder</p>
       </div>
 
       {folderInfoVisible && (
-        <div className="absolute top-[25px] h-[20px] w-full border-black flex items-center justify-between text-[0.7rem] px-2">
+        <div className="absolute top-[25px] flex h-[20px] w-full items-center justify-between border-black px-2 text-[0.7rem]">
           <p>3 items</p>
           <p>188K available</p>
         </div>
@@ -115,19 +115,19 @@ const OpenedMyProjects: React.FC<Props> = ({
       <motion.div
         className={
           isDragging
-            ? 'flex flex-col h-[95%] w-full overflow-y-auto pointer-events-none leading-7'
-            : 'flex flex-col h-[95%] w-full overflow-y-auto pointer-events-auto leading-7'
+            ? 'pointer-events-none flex h-[95%] w-full flex-col overflow-y-auto leading-7'
+            : 'pointer-events-auto flex h-[95%] w-full flex-col overflow-y-auto leading-7'
         }
       >
         <ul>
-          <li className="flex justify-around items-center border-y-2 border-black">
+          <li className="flex items-center justify-around border-y-2 border-black">
             <div className="w-[50%]">timepark.app</div>
             <div className="flex flex-col justify-around">
               <a
                 href="https://timepark-app-frontend.vercel.app/"
                 target="_blank"
                 rel="noreferrer"
-                className=" hover:bg-black hover:text-white cursor-pointer px-2"
+                className=" cursor-pointer px-2 hover:bg-black hover:text-white"
               >
                 Site
               </a>
@@ -135,20 +135,20 @@ const OpenedMyProjects: React.FC<Props> = ({
                 href="https://github.com/dominikpollak/timepark.app-frontend"
                 target="_blank"
                 rel="noreferrer"
-                className=" hover:bg-black hover:text-white cursor-pointer px-2"
+                className=" cursor-pointer px-2 hover:bg-black hover:text-white"
               >
                 Repo
               </a>
             </div>
           </li>
-          <li className="flex justify-around items-center border-b-2 border-black">
+          <li className="flex items-center justify-around border-b-2 border-black">
             <div className="w-[50%]">art_portfolio</div>
             <div className="flex flex-col justify-around">
               <a
                 href="https://portfolio-dominikpollak.vercel.app/"
                 target="_blank"
                 rel="noreferrer"
-                className=" hover:bg-black hover:text-white cursor-pointer px-2"
+                className=" cursor-pointer px-2 hover:bg-black hover:text-white"
               >
                 Site
               </a>
@@ -156,20 +156,20 @@ const OpenedMyProjects: React.FC<Props> = ({
                 href="https://github.com/dominikpollak/portfolio"
                 target="_blank"
                 rel="noreferrer"
-                className=" hover:bg-black hover:text-white cursor-pointer px-2"
+                className=" cursor-pointer px-2 hover:bg-black hover:text-white"
               >
                 Repo
               </a>
             </div>
           </li>
-          <li className="flex justify-around items-center border-b-2 border-black">
+          <li className="flex items-center justify-around border-b-2 border-black">
             <div className="w-[50%]">pokedex</div>
             <div className="flex flex-col justify-around">
               <a
                 href="https://pokemon-ecru.vercel.app/"
                 target="_blank"
                 rel="noreferrer"
-                className=" hover:bg-black hover:text-white cursor-pointer px-2"
+                className=" cursor-pointer px-2 hover:bg-black hover:text-white"
               >
                 Site
               </a>
@@ -177,7 +177,7 @@ const OpenedMyProjects: React.FC<Props> = ({
                 href="https://github.com/dominikpollak/pokemon"
                 target="_blank"
                 rel="noreferrer"
-                className=" hover:bg-black hover:text-white cursor-pointer px-2"
+                className=" cursor-pointer px-2 hover:bg-black hover:text-white"
               >
                 Repo
               </a>

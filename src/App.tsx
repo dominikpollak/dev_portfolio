@@ -6,7 +6,6 @@ import MyProjects from './components/MyProjects';
 import OpenedAboutme from './folders/OpenedAboutme';
 import OpenedMyProjects from './folders/OpenedMyProjects';
 import OpenedAlienPls from './folders/OpenedAlienPls';
-import 'overlayscrollbars/overlayscrollbars.css';
 import OpenedContact from './folders/OpenedContact';
 
 type AlienPlsContextType = {
@@ -71,14 +70,14 @@ function App() {
   };
 
   return (
-    <div className="w-screen h-screen bg-black font-chicago leading-5 font-normal text-black overflow-hidden">
-      <div className="fixed flex justify-center items-center h-[93%] w-full">
+    <div className="h-screen w-screen overflow-hidden bg-black font-chicago font-normal leading-5 text-black">
+      <div className="fixed flex h-[93%] w-full items-center justify-center">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 2, ease: 'easeIn' }}
           exit={{ scale: 0 }}
-          className='relative crt stripes w-[100%] h-[70%] md:w-[80%] xl:w-[50%] xl:h-[80%] bg-[url("./imgs/bg.png")] bg-repeat rounded-lg overflow-hidden box-border select-none'
+          className='crt stripes relative box-border h-[70%] w-[100%] select-none overflow-hidden rounded-lg bg-[url("./imgs/bg.png")] bg-repeat sm:w-[90%] md:w-[80%] lg:w-[65%] xl:h-[80%] xl:w-[50%]'
         >
           <AlienContext.Provider
             value={{ handleAlienPlsClick, handleContactClick }}
@@ -87,13 +86,13 @@ function App() {
           </AlienContext.Provider>
 
           <div
-            className="h-[95%] w-full text-[0.8rem] xl:text-[1rem]"
+            className="h-[95%] w-full text-[0.9rem] xl:text-[1rem]"
             ref={screenRef}
           >
             {/* About me folder icon */}
             <button
               onClick={handleAboutmeClick}
-              className="translate-x-[90%] translate-y-[100%] w-[12%] z-30"
+              className="z-30 w-[14%] translate-x-[90%] translate-y-[100%] sm:w-[10%] md:w-[12%]"
             >
               <AboutMe />
             </button>
@@ -101,7 +100,7 @@ function App() {
             {/* My projects folder icon */}
             <button
               onClick={handleMyProjectsClick}
-              className=" translate-x-[550%] translate-y-[170%] w-[12%] z-30"
+              className=" z-30 w-[14%] translate-x-[400%] translate-y-[170%] sm:w-[10%] md:w-[12%] lg:translate-x-[550%]"
             >
               <MyProjects />
             </button>
