@@ -51,7 +51,7 @@ const OpenedMyProjects: React.FC<Props> = ({
     >
       <motion.div
         onPointerDown={startDrag}
-        className="relative flex h-[25px] items-center border-b-[1.5px] border-black"
+        className="relative flex h-[25px] items-center border-b-[1.5px] border-black touch-none"
       >
         <div
           className="absolute z-0 ml-[0.2rem] h-[60%] w-[calc(100%-6px)] bg-contain bg-center bg-repeat-x"
