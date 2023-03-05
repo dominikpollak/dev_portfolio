@@ -33,7 +33,7 @@ const OpenedAboutme: React.FC<Props> = ({
 
   return (
     <motion.div
-      style={{ zIndex: zIndex }}
+      style={{ zIndex: zIndex, touchAction: "none"  }}
       className={`absolute top-[4rem] left-[2rem] box-border block h-[50%] min-h-[25px] w-[70%] resize overflow-hidden border-[1.5px] border-black bg-white xl:left-[7rem] xl:w-[40%]`}
       initial={{ scale: 0, originX: 0, originY: 0 }}
       animate={{ scale: 1 }}
@@ -44,7 +44,6 @@ const OpenedAboutme: React.FC<Props> = ({
       dragListener={false}
       dragElastic={false}
       dragControls={dragControls}
-      dragDirectionLock
     >
       <motion.div
         onPointerDown={startDrag}
