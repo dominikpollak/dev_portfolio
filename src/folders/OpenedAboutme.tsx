@@ -28,6 +28,7 @@ const OpenedAboutme: React.FC<Props> = ({
   };
 
   function startDrag(e: any) {
+    e.stopPropagation();
     dragControls.start(e);
   }
 

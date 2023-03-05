@@ -10,10 +10,6 @@
 }
 
 @layer components {
-
-  html,body{
-    overflow-y: hidden;
-  }
   
   .stripes::before {
     position: absolute;
