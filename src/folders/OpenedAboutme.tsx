@@ -28,7 +28,6 @@ const OpenedAboutme: React.FC<Props> = ({
   };
 
   function startDrag(e: any) {
-    e.stopPropagation();
     dragControls.start(e);
   }
 
@@ -45,6 +44,7 @@ const OpenedAboutme: React.FC<Props> = ({
       dragListener={false}
       dragElastic={false}
       dragControls={dragControls}
+      dragDirectionLock
     >
       <motion.div
         onPointerDown={startDrag}
