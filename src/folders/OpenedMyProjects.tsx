@@ -19,7 +19,6 @@ const OpenedMyProjects: React.FC<Props> = ({
   const dragControls = useDragControls();
   const [isDragging, setIsDragging] = useState<boolean>(false);
   const [folderInfoVisible, setFolderInfoVisible] = useState(true);
-
   const folderRef = useRef<HTMLDivElement>(null);
 
   const handleClose = () => {
@@ -74,7 +73,7 @@ const OpenedMyProjects: React.FC<Props> = ({
     >
       <motion.div
         onPointerDown={startDrag}
-        className="relative flex h-[25px] items-center border-b-[1.5px] border-black touch-none"
+        className="relative flex h-[25px] touch-none items-center border-b-[1.5px] border-black"
       >
         <div
           className="absolute z-0 ml-[0.2rem] h-[60%] w-[calc(100%-6px)] bg-contain bg-center bg-repeat-x"

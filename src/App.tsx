@@ -1,12 +1,12 @@
-import { useState, useRef, createContext } from 'react';
 import { motion } from 'framer-motion';
-import Navbar from './components/Navbar';
+import { createContext, useRef, useState } from 'react';
 import AboutMe from './components/Aboutme';
 import MyProjects from './components/MyProjects';
+import Navbar from './components/Navbar';
 import OpenedAboutme from './folders/OpenedAboutme';
-import OpenedMyProjects from './folders/OpenedMyProjects';
 import OpenedAlienPls from './folders/OpenedAlienPls';
 import OpenedContact from './folders/OpenedContact';
+import OpenedMyProjects from './folders/OpenedMyProjects';
 
 type AlienPlsContextType = {
   handleAlienPlsClick: () => void;
@@ -39,7 +39,9 @@ function App() {
   };
 
   const handleMyProjectsClick = (): void => {
-    setOpenMyProjects(true);
+    if (!openMyProjects) {
+      setOpenMyProjects(true);
+    }
     setAboutmeZIndex(40);
     setMyProjectsZIndex(50);
     setAlienPlsZIndex(40);
@@ -69,6 +71,8 @@ function App() {
     setOpenContact(false);
   };
 
+  console.log('lol');
+
   return (
     <div className="h-screen w-screen overflow-hidden bg-black font-chicago font-normal leading-5 text-black">
       <div className="fixed flex h-[93%] w-full items-center justify-center">
@@ -77,7 +81,7 @@ function App() {
           animate={{ opacity: 1 }}
           transition={{ duration: 2, ease: 'easeIn' }}
           exit={{ scale: 0 }}
-          className='crt stripes relative box-border h-[70%] w-[100%] select-none overflow-hidden rounded-lg bg-[url("./imgs/bg.png")] bg-repeat sm:w-[90%] md:w-[80%] lg:w-[65%] xl:h-[80%] xl:w-[50%]'
+          className='crt stripes relative box-border h-[70%] min-h-[500px] w-[100%] select-none overflow-hidden rounded-lg bg-[url("./imgs/bg.png")] bg-repeat sm:w-[90%] md:w-[80%] lg:w-[65%] xl:h-[80%] xl:w-[50%]'
         >
           <AlienContext.Provider
             value={{ handleAlienPlsClick, handleContactClick }}

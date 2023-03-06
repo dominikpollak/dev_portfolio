@@ -21,7 +21,7 @@ const MacTab: React.FC<Props> = ({ closeAllTabs }) => {
 
   return (
     <>
-      <div className="absolute top-[7%] z-[60] h-auto w-auto border-[1.5px] border-t-0 border-black bg-white pb-1 leading-7 md:top-[5%]">
+      <div className="absolute top-[7%] z-[60] h-auto w-auto border-[1.5px] border-t-0 border-black bg-white leading-7 md:top-[5%]">
         <ul className="text-[0.8rem] text-black xl:text-[0.9rem]">
           <li
             onClick={() => setShowAboutMac(true)}
