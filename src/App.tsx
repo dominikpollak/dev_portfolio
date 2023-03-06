@@ -39,9 +39,7 @@ function App() {
   };
 
   const handleMyProjectsClick = (): void => {
-    if (!openMyProjects) {
-      setOpenMyProjects(true);
-    }
+    setOpenMyProjects(true);
     setAboutmeZIndex(40);
     setMyProjectsZIndex(50);
     setAlienPlsZIndex(40);
