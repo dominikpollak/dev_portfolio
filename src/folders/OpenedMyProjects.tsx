@@ -111,15 +111,30 @@ const OpenedMyProjects: React.FC<Props> = ({
         </div>
       )}
 
-      <motion.div
-        className={
-          isDragging
-            ? 'pointer-events-none flex h-[95%] w-full flex-col overflow-y-auto leading-7'
-            : 'pointer-events-auto flex h-[95%] w-full flex-col overflow-y-auto leading-7'
-        }
-      >
+      <motion.div className="flex h-[95%] w-full flex-col overflow-y-auto pb-8 leading-7">
         <ul>
           <li className="flex items-center justify-around border-y-2 border-black">
+            <div className="w-[50%]">shoezzr</div>
+            <div className="flex flex-col justify-around">
+              <a
+                href="https://shoezzr.vercel.app/"
+                target="_blank"
+                rel="noreferrer"
+                className=" cursor-pointer px-2 hover:bg-black hover:text-white"
+              >
+                Site
+              </a>
+              <a
+                href="https://github.com/dominikpollak/shoezzr"
+                target="_blank"
+                rel="noreferrer"
+                className=" cursor-pointer px-2 hover:bg-black hover:text-white"
+              >
+                Repo
+              </a>
+            </div>
+          </li>
+          <li className="flex items-center justify-around border-b-2 border-black">
             <div className="w-[50%]">timepark.app</div>
             <div className="flex flex-col justify-around">
               <a

@@ -48,7 +48,7 @@ const OpenedContact: React.FC<Props> = ({
     >
       <motion.div
         onPointerDown={startDrag}
-        className="relative flex h-[25px] items-center border-b-[1.5px] border-black touch-none"
+        className="relative flex h-[25px] touch-none items-center border-b-[1.5px] border-black"
       >
         <div
           className="absolute z-0 ml-[0.2rem] h-[60%] w-[calc(100%-6px)] bg-contain bg-center bg-repeat-x"
@@ -77,14 +77,24 @@ const OpenedContact: React.FC<Props> = ({
 
       <div className="flex h-full w-full flex-col items-center justify-start overflow-y-auto overflow-x-hidden p-4 pb-10 text-[0.9rem]">
         <div className="w-full">
-          <div className="font-bold">Github:</div>
           <a
             target="_blank"
             rel="noreferrer"
             className="underline hover:bg-black hover:text-white"
             href="https://github.com/dominikpollak"
           >
-            https://github.com/dominikpollak
+            Github
+          </a>
+        </div>
+
+        <div className="mt-4 w-full">
+          <a
+            target="_blank"
+            rel="noreferrer"
+            className="underline hover:bg-black hover:text-white"
+            href="https://www.linkedin.com/in/dominik-poll%C3%A1k-31608718b/"
+          >
+            Linkedin
           </a>
         </div>
 
