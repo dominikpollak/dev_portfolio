@@ -40,8 +40,8 @@ const MacTab: React.FC<Props> = ({ closeAllTabs }) => {
 
       {showAboutMac && (
         <div
-          className="absolute left-[50%] top-[50%] z-[60] flex h-[25%] w-[70%] translate-x-[-50%] translate-y-[-50%] items-center justify-center
-      border-4 border-double border-black bg-white p-2 xl:w-[50%]"
+          className="absolute left-[50%] top-[50%] z-[60] flex h-[25%] w-[70%] translate-x-[-50%] translate-y-[-50%] items-center justify-center border-4
+      border-double border-black bg-white p-2 text-center xl:w-[50%]"
         >
           Version 1.1g ©1984 Apple Computer
         </div>

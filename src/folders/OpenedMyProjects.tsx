@@ -87,9 +87,13 @@ const OpenedMyProjects: React.FC<Props> = ({
           }}
         >
           {!dark ? (
-            <img className="h-[70%] bg-white p-[0.3px]" src={BoxWhite} alt="" />
+            <img
+              className="h-[70%] bg-white p-[0.3px]"
+              src={BoxWhite}
+              alt="white box"
+            />
           ) : (
-            <img className="h-[70%] p-[0.3px]" src={BoxBlack} alt="" />
+            <img className="h-[70%] p-[0.3px]" src={BoxBlack} alt="black box" />
           )}
         </div>
 

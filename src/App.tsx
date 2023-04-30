@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion';
-import { createContext, useRef, useState } from 'react';
+import { Suspense, createContext, lazy, useRef, useState } from 'react';
 import AboutMe from './components/Aboutme';
 import MyProjects from './components/MyProjects';
 import Navbar from './components/Navbar';
-import OpenedAboutme from './folders/OpenedAboutme';
-import OpenedAlienPls from './folders/OpenedAlienPls';
-import OpenedContact from './folders/OpenedContact';
-import OpenedMyProjects from './folders/OpenedMyProjects';
+// import OpenedAboutme from './folders/OpenedAboutme';
+// import OpenedAlienPls from './folders/OpenedAlienPls';
+// import OpenedContact from './folders/OpenedContact';
+// import OpenedMyProjects from './folders/OpenedMyProjects';
 
 type AlienPlsContextType = {
   handleAlienPlsClick: () => void;
@@ -16,6 +16,11 @@ type AlienPlsContextType = {
 export const AlienContext = createContext<AlienPlsContextType | undefined>(
   undefined
 );
+
+const OpenedAboutme = lazy(() => import('./folders/OpenedAboutme'));
+const OpenedContact = lazy(() => import('./folders/OpenedContact'));
+const OpenedMyProjects = lazy(() => import('./folders/OpenedMyProjects'));
+const OpenedAlienPls = lazy(() => import('./folders/OpenedAlienPls'));
 
 function App() {
   const [openAboutme, setOpenAboutme] = useState<boolean>(false);
@@ -69,8 +74,6 @@ function App() {
     setOpenContact(false);
   };
 
-  console.log('lol');
-
   return (
     <div className="h-screen w-screen overflow-hidden bg-black font-chicago font-normal leading-5 text-black">
       <div className="fixed flex h-[93%] w-full items-center justify-center">
@@ -110,44 +113,52 @@ function App() {
             {/* Opened about me file */}
             {openAboutme && (
               <div onMouseDown={handleAboutmeClick}>
-                <OpenedAboutme
-                  screenRef={screenRef}
-                  setOpenAboutme={setOpenAboutme}
-                  zIndex={AboutmezIndex}
-                />
+                <Suspense>
+                  <OpenedAboutme
+                    screenRef={screenRef}
+                    setOpenAboutme={setOpenAboutme}
+                    zIndex={AboutmezIndex}
+                  />
+                </Suspense>
               </div>
             )}
 
             {/* Opened my_projects folder */}
             {openMyProjects && (
               <div onMouseDown={handleMyProjectsClick}>
-                <OpenedMyProjects
-                  screenRef={screenRef}
-                  setOpenMyProjects={setOpenMyProjects}
-                  zIndex={myProjectsZIndex}
-                />
+                <Suspense>
+                  <OpenedMyProjects
+                    screenRef={screenRef}
+                    setOpenMyProjects={setOpenMyProjects}
+                    zIndex={myProjectsZIndex}
+                  />
+                </Suspense>
               </div>
             )}
 
             {/* Opened gif */}
             {openAlienPls && (
               <div onMouseDown={handleAlienPlsClick}>
-                <OpenedAlienPls
-                  screenRef={screenRef}
-                  zIndex={alienPlsZIndex}
-                  setOpenAlienPls={setOpenAlienPls}
-                />
+                <Suspense>
+                  <OpenedAlienPls
+                    screenRef={screenRef}
+                    zIndex={alienPlsZIndex}
+                    setOpenAlienPls={setOpenAlienPls}
+                  />
+                </Suspense>
               </div>
             )}
 
             {/* Opened contact file */}
             {openContact && (
               <div onMouseDown={handleContactClick}>
-                <OpenedContact
-                  screenRef={screenRef}
-                  setOpenContact={setOpenContact}
-                  zIndex={contactIndex}
-                />
+                <Suspense>
+                  <OpenedContact
+                    screenRef={screenRef}
+                    setOpenContact={setOpenContact}
+                    zIndex={contactIndex}
+                  />
+                </Suspense>
               </div>
             )}
           </div>
